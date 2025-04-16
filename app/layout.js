@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
         <main className="w-11/12 mx-auto py-8">{children}</main>
