@@ -23,7 +23,7 @@ const PhotoFeed = ({lang}) => {
             key={pin.id}
             className="break-inside-avoid rounded-lg overflow-hidden shadow-lg bg-white"
           >
-            <Link href={`${lang}/${pin.id}`}>
+            <Link href={`images/${pin.id}`}>
               <img
                 src={pin.imageUrl}
                 alt={pin.title}

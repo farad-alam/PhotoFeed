@@ -17,13 +17,17 @@ export async function middleware(request) {
   const pathName = request.nextUrl.pathname;
 
   // Skip middleware for static files and Next.js internals
-  if (
-    pathName.startsWith("/_next/") ||
-    pathName.includes(".") || // static files
-    pathName.startsWith("/api/")
-  ) {
-    return NextResponse.next();
-  }
+  // if (
+  //   pathName.startsWith("/_next/") ||
+  //   pathName.includes(".") || // static files
+  //   pathName.startsWith("/api/")
+  // ) {
+  //   return NextResponse.next();
+  // }
+
+    if (pathName === "/") {
+      return NextResponse.redirect(new URL("/images", request.url));
+    }
 
   const isLocalMissinginPath = locales.every(
     (local) =>
@@ -38,11 +42,11 @@ export async function middleware(request) {
 }
 
 // Solution of conflict tailwind css
-// export const config = {
-//   matcher: [
-//     // Skip all internal paths (_next, assets, api)
-//     "/((?!api|assets|.*\\..*|_next).*)",
-//     // Optional: only run on root (/) URL
-//     // '/'
-//   ],
-// };
+export const config = {
+  matcher: [
+    // Skip all internal paths (_next, assets, api)
+    "/((?!api|assets|.*\\..*|_next).*)",
+    // Optional: only run on root (/) URL
+    // '/'
+  ],
+};

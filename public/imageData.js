@@ -129,6 +129,7 @@ const pins = [
     location: "Pacific Ocean",
     tags: ["ocean", "surfing", "sunset"],
   },
+  
 ];
 
 export default pins;
